@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: auto;
+            padding: 0px;
+        }
+        
+        .wrapper {
+            height: 800px;
+            width: 1089px;
+            background-color: rgb(2, 173, 247);
+        }
+        
+        nav {
+            height: 100px;
+            width: 1089px;
+            background-color: rgb(154, 230, 15);
+            line-height: 50px;
+        }
+        
+        .menu li {
+            height: 100%;
+            width: 272px;
+            float: left;
+            list-style: none;
+            text-indent: 50px;
+            background-color: rgb(111, 255, 28);
+            text-align: center;
+        }
+        
+        a {
+            color: rgb(19, 18, 18);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: larger;
+        }
+        
+        .menu li:hover {
+            background-color: rgb(36, 14, 233);
+        }
+        
+        li:hover>a {
+            color: rgb(212, 33, 33);
+        }
+        
+        .menu li .submenu1 {
+            display: none;
+        }
+        
+        .menu li:hover>.submenu1 {
+            display: block;
+        }
+        
+        nav span form #txtEmail {
+            padding: 10px;
+            margin-right: 3px;
+        }
+        
+        header {
+            height: 150px;
+            width: 100%;
+            background-color: aquamarine;
+        }
+        
+        .content {
+            height: 400px;
+            width: 100%;
+            background-color: blue;
+        }
+        
+        aside {
+            height: 100%;
+            width: 50%;
+            background-color: beige;
+            float: left;
+        }
+        
+        section {
+            height: 100%;
+            width: 50%;
+            background-color: blueviolet;
+            float: left;
+        }
+        
+        .menu {
+            height: 100%;
+            width: 100%;
+        }
+        
+        .clear {
+            clear: both;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <nav>
+            <ul class="menu">
+                <li><a href="https://www.24h.com.vn/">HOME</a>
+                    <ul class="submenu1">
+                        <li><a href="">Menu1.1</a></li>
+                        <li><a href="">Menu1.2</a></li>
+                        <li><a href="">Menu1.3</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://cellphones.com.vn/">PHONE</a>
+                    <ul class="submenu1">
+                        <li><a href="">Menu1.1</a></li>
+                        <li><a href="">Menu1.2</a></li>
+                        <li><a href="">Menu1.3</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.google.com/intl/vi/gmail/about/">EMAIL</a>
+                    <ul class="submenu1">
+                        <li><a href="">Menu1.1</a></li>
+                        <li><a href="">Menu1.2</a></li>
+                        <li><a href="">Menu1.3</a></li>
+                    </ul>
+                </li>
+                <li><a href="https://www.youtube.com/">INTERNET</a>
+                    <ul class="submenu1">
+                        <li><a href="">Menu1.1</a></li>
+                        <li><a href="">Menu1.2</a></li>
+                        <li><a href="">Menu1.3</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <span>
+                <form action="dangky.php" method="post">
+                <label for="EMAIL">Email: </label>
+                <input type="email" name="txtEmail" id="txtEmail" placeholder="Nhap Email" required>
+                <input type="submit" value="GO" style="border-radius: 50%;">
+            </form>
+        </span>
+        </nav>
+        <header></header>
+        <div class="clear"></div>
+        <div class="content">
+            <aside>
+                <article>
+                    <h1>CHUONG TRINH 1</h1>
+                </article>
+                <article>
+                    <h1>CHUONG TRINH 2</h1>
+                </article>
+                <article>
+                    <h1>CHUONG TRINH 3</h1>
+                </article>
+            </aside>
+            <section>
+                <h1 style="text-align: center;">DANG KY THONG TIN</h1>
+                <form action="" method="post">
+                    <fieldset>
+                        <legend>Thong tin cua ban</legend><br><br>
+                        <label for="lblHoTen">Ho ten: </label><br>
+                        <input type="text" name="txtHoTen" id="txtHoTen" required placeholder="Ho ten"><br><br>
+                        <label for="lblCMND">CMND: </label><br>
+                        <input type="text" name="txtCMND" id="txtCMND" required placeholder="So CMND"><br><br>
+                        <label for="lblDiaChi">Dia chi: </label><br>
+                        <input type="text" name="txtDiaChi" id="txtDiaChi" required placeholder="Dia Chi"><br><br>
+                        <input type="submit" value="Dang Ky">
+                    </fieldset>
+                </form>
+            </section>
+        </div>
+        <div class="clear"></div>
+        <footer></footer>
+    </div>
+</body>
+
+</html>
