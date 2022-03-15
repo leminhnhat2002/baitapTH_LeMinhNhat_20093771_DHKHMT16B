@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style type="text/css">
+        * {
+            padding: 0px;
+            margin: auto;
+        }
+        
+        .form1 {
+            height: 800px;
+            width: 700px;
+            background-color: antiquewhite;
+        }
+        
+        body {
+            font-size: 15px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        
+        div {
+            margin: auto;
+            padding-top: 5px;
+            padding-bottom: 10px;
+            width: 700px;
+        }
+        
+        .title {
+            float: left;
+            width: 200px;
+            text-align: right;
+            color: black;
+            font-size: 15px;
+        }
+        
+        .radio-buttons label {
+            float: none;
+        }
+        
+        .submit {
+            text-align: center;
+        }
+        
+        span {
+            color: red;
+            font-size: 10px;
+        }
+    </style>
+    <script>
+        function kiemtraTK() {
+            let mau = /^[a-z0-9]{6,20]$/;
+            let tkKT = document.getElementById('txtNhapTK').value.trim();
+            if (mau.test(tkKT) == true) {
+                spKT.innerText = "*";
+                return true;
+            } else {
+                spKT.innerText = "Bắt buộc, bắt đầu bằng ký tự"
+                return false;
+            }
+
+        }
+
+        function kiemtraMK() {
+            let mau = /(?=.*\d).{6,}/;
+            let tkMK = document.getElementById('txtMK').value.trim();
+            if (mau.test(tkMK) == true) {
+                spMK.innerText = "*";
+                return true;
+            } else {
+                spMK.innerText = "Phải có chữ, ít nhất 6 ký tự";
+                return false;
+            }
+
+        }
+
+        function xacnhanMK() {
+            let mau = /(?=.*\d).{6,}/;
+            let tcXNMK = document.getElementById('txtMK').value.trim();
+            if (mau.test(tkXNMK) != mau.test(tkMK)) {
+                spMK.innerText = "mật khẩu không trùng khớp";
+                return false;
+            } else {
+                spMK.innerText = "*";
+                return true;
+            }
+        }
+
+        function kiemtraNS() {
+            var ns = new Date(document.getElementById('txtNS').value)
+            var today = new Date();
+            if (eval(today.getFullYear() - ns.getFullYear()) <= 10) {
+                spNS.innerText = "Tuổi phải lớn hơn 10";
+                return flase;
+            } else {
+                spNS.innerText = "";
+                return true;
+            }
+        }
+
+        function SubmitForm() {
+            if (kiemtraTK() == false || kiemtraMK() == flase || xacnhanMK() == false) {
+                alert("Bạn chưa nhập đầy đủ thông tin!");
+
+            } else {
+                return true;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <form class="form1" action="" method="post">
+        <fieldset>
+            <legend>ĐĂNG KÝ TÀI KHOẢN</legend>
+        </fieldset>
+        <div>
+            <label for="lblNhapTK" class="title">Nhập tài khoản đăng ký:</label>
+            <input type="text" name="txtNhapTK" id="txtNhapTK " onblur="return kiemtraTK();"> <span id="spKT ">*</span>
+            <input type="submit" value="DK">
+        </div>
+        <div>
+            <label for="txtMK " class="title">Nhập mật khẩu:</label>
+            <input type="password" name="txtMK" id="txtMK" onblur="return kiemtrMK();"> <span id="spMK">*</span>
+        </div>
+        <div>
+            <label for="txtXNMK" class="title">Nhập lại mật khẩu:</label>
+            <input type="password" name="txtXNMK" id="txtXNMK" onblur="return xacnhanMK();"> <span id="spXNMK">*</span>
+        </div>
+        <fieldset>
+            <legend>THÔNG TIN CÁ NHÂN</legend>
+        </fieldset>
+        <div>
+            <label for="txtName" class="title">Nhập tên:</label>
+            <input type="text" name="txtName" id="txtName" placeholder="txtName" size="30">
+            <span id="hoten">Bắt buộc</span>
+        </div>
+        <div>
+            <label for="txtNS" class="title">Ngày sinh:</label>
+            <input type="date" name="txtNS" id="txtNS" placeholder="txtName" size="30" onabort="return kiemtraNS();">
+            <span id="hoten">.</span>
+        </div>
+        <div class="radio-buttons">
+            <span class="title">Giới tính:</span>
+            <input type="radio" name="gender" id="male" value="M" checked>
+            <label for="male">Nam</label>
+            <input type="radio" name="gender" id="female" value="F" checked>
+            <label for="female">Nữ</label>
+        </div>
+        <div>
+            <label for="txtDC" class="title">Địa chỉ:</label>
+            <input type="text" name="txtDC" id="txtDC" placeholder="txtDC" size="30">
+            <span id="dichi">Bắt buộc</span>
+        </div>
+        <div>
+            <label for="txtPhone" class="title">Điện thoại:</label>
+            <input type="number" name="txtPhone" id="txtPhone" placeholder="txtPhone" size="11">
+            <span id="dichi">Phải là số</span>
+        </div>
+        <label for="txtEmail" class="title">Email:</label>
+        <input type="email" name="txtEmail" id="txtEmail" placeholder="txtEmail" size="30">
+        <span id="dichi">Nhập đúng địa chỉ</span>
+        <div class="submit">
+            <input type="submit" value="Đăng ký" id="submit"> <input type="reset" value="Hủy" id="submit">
+
+        </div>
+    </form>
+</body>
+
+</html>
